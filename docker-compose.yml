@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  proyectointegrador:
+    image: proyectointegrador
+    build:
+      context: .\ProyectoIntegrador
+      dockerfile: Dockerfile
