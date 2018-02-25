@@ -40,3 +40,5 @@ C:\Users\b-and\source\repos\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\Proy
 C:\Users\b-and\source\repos\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.dll
 C:\Users\b-and\source\repos\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.pdb
 C:\Users\b-and\source\repos\ProyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csprojResolveAssemblyReference.cache
+C:\Users\A01376200\Documents\ITESM\proyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csprojResolveAssemblyReference.cache
+C:\Users\A01376200\Documents\ITESM\proyectoIntegrador\ProyectoIntegrador\obj\Debug\ProyectoIntegrador.csproj.CoreCompileInputs.cache
