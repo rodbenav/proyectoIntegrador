@@ -118,9 +118,24 @@
     $(document).ready(function () {
         $("#filter").on("keyup", function () {
             var value = $(this).val().toLowerCase();
-            $("#accordion h4").filter(function () {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            $(".accordion-toggle").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                if ($(this).is(":hidden")) {
+                    $($(this).attr("data-target")).hide();
+                }
             });
+        });
+    });
+
+    $(document).ready(function () {
+        $(".accordion-toggle").on("click", function () {
+            var target = $(this).attr("data-target");
+            var objectTarget = $(target);
+            if (objectTarget.is(":visible")) {
+                objectTarget.hide();
+            } else {
+                objectTarget.show();
+            }
         });
     });
 </script>

@@ -5,3 +5,66 @@
 
 <h2>Historial</h2>
 
+<div class="container">
+    <div style="width:100%">
+        <br />
+        <div class="row">
+            <h4>Identificaciones guardadas:</h4>
+        </div>
+        <div class="form-group">
+            <input style="margin-top:14px; margin-bottom:14px" class="form-control pull-right" id="filter" type="text" placeholder="Buscar...">
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Caso/Identificador</th>
+                    <th scope="col">Información</th>
+                </tr>
+            </thead>
+            <tbody id="historyTable">
+                <tr>
+                    <th scope="row">1</th>
+                    <td>08/02/2018</td>
+                    <td>Caso-1:33.2</td>
+                    <td><a class="btn btn-primary btn-md" style="width:100%">Detalle</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>05/01/2018</td>
+                    <td>Caso-1:33.1</td>
+                    <td><a class="btn btn-primary btn-md" style="width:100%">Detalle</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>12/02/2017</td>
+                    <td>Caso-2:33.1</td>
+                    <td><a class="btn btn-primary btn-md" style="width:100%">Detalle</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+        </div>
+        <div class="col-xs-4" align="center">
+            <a href="/home/Index" class="btn btn-primary btn-md">Realizar nueva identificación</a>
+        </div>
+        <div class="col-lg-4">
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#filter").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#historyTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
+
