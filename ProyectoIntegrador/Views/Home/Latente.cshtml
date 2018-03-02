@@ -1,9 +1,32 @@
 ﻿@{
-    ViewBag.Title = "Identificación de huela latente";
+    ViewBag.Title = "Identificación de huella latente";
 }
 <h2>@ViewBag.Title.</h2>
 
+<style>
+    tr.accordion-toggle {
+        font: 15px;
+    }
 
+    th {
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+    }
+    img {
+        height: auto;
+        width: auto;
+        max-width: 150px;
+        max-height: 150px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
 
 <div class="container">
     <div class="row">
@@ -11,97 +34,104 @@
             <input style="margin-top:14px; margin-bottom:14px" class="form-control pull-right" id="filter" type="text" placeholder="Buscar...">
         </div>
     </div>
-    <div class="glyphicon-collapse-down">
+    <div class="row">
         <table class="table">
             <thead>
                 <tr>
-                    <th>Account ID</th>
-                    <th>Name</th>
-                    <th>Number</th>
-                    <th>Owner</th>
-                    <th>Status</th>
+                    <th>Identificador-Caso</th>
+                    <th>Número de huellas en el caso</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="accordion-toggle" data-toggle="collapse" data-target="#12345-cores">
-                    <td>12345</td>
-                    <td>Title of Study</td>
-                    <td>4444-5555-2222-347012</td>
-                    <td>Daniel Rader</td>
-                    <td>Granted</td>
+                <tr class="accordion-toggle" data-toggle="collapse" target="#caso-33-1">
+                    <td>Caso 33.1</td>
+                    <td>3</td>
+                    <td><a class="btn btn-primary btn-md" style="width:100%" data-target="#caso-33-1">Ver detalles</a></td>
                 </tr>
                 <tr>
-                    <td class="accordion-body collapse" id="12345-cores">
-                        <table class="table">
-                            <thead>
-                            <th>Core</th>
-                            <th>Spending Limit</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>GDL</td>
-                                    <td>2,000.00</td>
-                                </tr>
-                                <tr>
-                                    <td>MCS</td>
-                                    <td>15,700.61</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                <tr class="accordion-toggle" data-toggle="collapse" data-target="#98765-cores">
-                    <td>98765</td>
-                    <td>Title of a Longer Study</td>
-                    <td>4444-5555-2222-366588</td>
-                    <td>Daniel Rader</td>
-                    <td>Pending</td>
-                </tr>
-                <tr>
-                    <td class="accordion-body collapse" id="98765-cores">
-                        <table class="table">
-                            <thead>
-                            <th>Core</th>
-                            <th>Spending Limit</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>GDL</td>
-                                    <td>2,000.00</td>
-                                </tr>
-                                <tr>
-                                    <td>MCS</td>
-                                    <td>15,700.61</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                <tr class="accordion-toggle" data-toggle="collapse" data-target="#70235-cores">
-                    <td>70235</td>
-                    <td>This is the Title of the long Study</td>
-                    <td>4444-5555-2222-698112</td>
-                    <td>Julia Riches</td>
-                    <td>Granted</td>
-                </tr>
-                <tr>
-                    <td colspan='2' class="accordion-body collapse" id="70235-cores">
+                    <td colspan='2' class="accordion-body collapse" id="caso-33-1">
                         <table class="table">
                             <thead>
                             <th></th>
-                            <th>Core</th>
-                            <th>Spending Limit</th>
+                            <th>Identificador</th>
+                            <th>Huella</th>
+                            <th></th>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td></td>
-                                    <td>GDL</td>
-                                    <td>2,000.00</td>
+                                    <td>Pulgar I-1</td>
+                                    <td><img class="img-responsive img" src="~/Content/Images/download.jpg" /></td>
+                                    <td><a class="btn btn-primary btn-md" style="width:100%">Identificar</a></td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>MCS</td>
-                                    <td>15,700.61</td>
+                                    <td>Pulgar D-1</td>
+                                    <td><img class="img-responsive img" src="~/Content/Images/huellas.jpg" /></td>
+                                    <td><a class="btn btn-primary btn-md" style="width:100%">Identificar</a></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Indice D-1</td>
+                                    <td><img class="img-responsive img" src="~/Content/Images/hqdefault.jpg" /></td>
+                                    <td><a class="btn btn-primary btn-md" style="width:100%">Identificar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="accordion-toggle" data-toggle="collapse" target="#caso-33-2">
+                    <td>Caso 33.2</td>
+                    <td>2</td>
+                    <td><a class="btn btn-primary btn-md" style="width:100%" data-target="#caso-33-2">Ver detalles</a></td>
+                </tr>
+                <tr>
+                    <td colspan='2' class="accordion-body collapse" id="caso-33-2">
+                        <table class="table">
+                            <thead>
+                            <th></th>
+                            <th>Identificador</th>
+                            <th>Huella</th>
+                            <th></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>Medio I-1</td>
+                                    <td><img class="img-responsive img" src="~/Content/Images/otra.jpg" /></td>
+                                    <td><a class="btn btn-primary btn-md" style="width:100%">Identificar</a></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Medio I-2</td>
+                                    <td><img class="img-responsive img" src="~/Content/Images/download.jpg" /></td>
+                                    <td><a class="btn btn-primary btn-md" style="width:100%">Identificar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="accordion-toggle" data-toggle="collapse" target="#caso-34-1">
+                    <td>Caso 34.1</td>
+                    <td>1</td>
+                    <td><a class="btn btn-primary btn-md" style="width:100%" data-target="#caso-34-1">Ver detalles</a></td>
+                </tr>
+                <tr>
+                    <td colspan='2' class="accordion-body collapse" id="caso-34-1">
+                        <table class="table">
+                            <thead>
+                            <th></th>
+                            <th>Identificador</th>
+                            <th>Huella</th>
+                            <th></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>Pulgar I-1</td>
+                                    <td><img class="img-responsive img" src="~/Content/Images/blancoadnhifi.jpg" /></td>
+                                    <td><a class="btn btn-primary btn-md" style="width:100%">Identificar</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -121,14 +151,14 @@
             $(".accordion-toggle").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
                 if ($(this).is(":hidden")) {
-                    $($(this).attr("data-target")).hide();
+                    $($(this).attr("target")).hide();
                 }
             });
         });
     });
 
     $(document).ready(function () {
-        $(".accordion-toggle").on("click", function () {
+        $(".btn").on("click", function () {
             var target = $(this).attr("data-target");
             var objectTarget = $(target);
             if (objectTarget.is(":visible")) {
@@ -138,41 +168,4 @@
             }
         });
     });
-</script>
-
-<script>
-    var $table = $('#table');
-    $(function () {
-        buildTable($table, 8, 1);
-    });
-    function expandTable($detail, cells) {
-        buildTable($detail.html('<table></table>').find('table'), cells, 1);
-    }
-    function buildTable($el, cells, rows) {
-        var i, j, row,
-            columns = [],
-            data = [];
-        for (i = 0; i < cells; i++) {
-            columns.push({
-                field: 'field' + i,
-                title: 'Cell' + i,
-                sortable: true
-            });
-        }
-        for (i = 0; i < rows; i++) {
-            row = {};
-            for (j = 0; j < cells; j++) {
-                row['field' + j] = 'Row-' + i + '-' + j;
-            }
-            data.push(row);
-        }
-        $el.bootstrapTable({
-            columns: columns,
-            data: data,
-            detailView: cells > 1,
-            onExpandRow: function (index, row, $detail) {
-                expandTable($detail, cells - 1);
-            }
-        });
-    }
 </script>
