@@ -11,8 +11,7 @@ namespace ProyectoIntegrador.Controllers
 
         public ActionResult Impresion()
         {
-            ViewBag.Message = "Your application description page.";
-
+            ViewBag.Header = "Identificación de huellas de impresión";
             return View();
         }
 
