@@ -1,17 +1,178 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Identificación de huela latente";
 }
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+
+<div class="container">
+    <div class="row">
+        <div class="form-group">
+            <input style="margin-top:14px; margin-bottom:14px" class="form-control pull-right" id="filter" type="text" placeholder="Buscar...">
+        </div>
+    </div>
+    <div class="glyphicon-collapse-down">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Account ID</th>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Owner</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="accordion-toggle" data-toggle="collapse" data-target="#12345-cores">
+                    <td>12345</td>
+                    <td>Title of Study</td>
+                    <td>4444-5555-2222-347012</td>
+                    <td>Daniel Rader</td>
+                    <td>Granted</td>
+                </tr>
+                <tr>
+                    <td class="accordion-body collapse" id="12345-cores">
+                        <table class="table">
+                            <thead>
+                            <th>Core</th>
+                            <th>Spending Limit</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>GDL</td>
+                                    <td>2,000.00</td>
+                                </tr>
+                                <tr>
+                                    <td>MCS</td>
+                                    <td>15,700.61</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="accordion-toggle" data-toggle="collapse" data-target="#98765-cores">
+                    <td>98765</td>
+                    <td>Title of a Longer Study</td>
+                    <td>4444-5555-2222-366588</td>
+                    <td>Daniel Rader</td>
+                    <td>Pending</td>
+                </tr>
+                <tr>
+                    <td class="accordion-body collapse" id="98765-cores">
+                        <table class="table">
+                            <thead>
+                            <th>Core</th>
+                            <th>Spending Limit</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>GDL</td>
+                                    <td>2,000.00</td>
+                                </tr>
+                                <tr>
+                                    <td>MCS</td>
+                                    <td>15,700.61</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="accordion-toggle" data-toggle="collapse" data-target="#70235-cores">
+                    <td>70235</td>
+                    <td>This is the Title of the long Study</td>
+                    <td>4444-5555-2222-698112</td>
+                    <td>Julia Riches</td>
+                    <td>Granted</td>
+                </tr>
+                <tr>
+                    <td colspan='2' class="accordion-body collapse" id="70235-cores">
+                        <table class="table">
+                            <thead>
+                            <th></th>
+                            <th>Core</th>
+                            <th>Spending Limit</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>GDL</td>
+                                    <td>2,000.00</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>MCS</td>
+                                    <td>15,700.61</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#filter").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $(".accordion-toggle").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                if ($(this).is(":hidden")) {
+                    $($(this).attr("data-target")).hide();
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $(".accordion-toggle").on("click", function () {
+            var target = $(this).attr("data-target");
+            var objectTarget = $(target);
+            if (objectTarget.is(":visible")) {
+                objectTarget.hide();
+            } else {
+                objectTarget.show();
+            }
+        });
+    });
+</script>
+
+<script>
+    var $table = $('#table');
+    $(function () {
+        buildTable($table, 8, 1);
+    });
+    function expandTable($detail, cells) {
+        buildTable($detail.html('<table></table>').find('table'), cells, 1);
+    }
+    function buildTable($el, cells, rows) {
+        var i, j, row,
+            columns = [],
+            data = [];
+        for (i = 0; i < cells; i++) {
+            columns.push({
+                field: 'field' + i,
+                title: 'Cell' + i,
+                sortable: true
+            });
+        }
+        for (i = 0; i < rows; i++) {
+            row = {};
+            for (j = 0; j < cells; j++) {
+                row['field' + j] = 'Row-' + i + '-' + j;
+            }
+            data.push(row);
+        }
+        $el.bootstrapTable({
+            columns: columns,
+            data: data,
+            detailView: cells > 1,
+            onExpandRow: function (index, row, $detail) {
+                expandTable($detail, cells - 1);
+            }
+        });
+    }
+</script>
