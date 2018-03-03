@@ -35,5 +35,11 @@ namespace ProyectoIntegrador.Controllers
             ViewBag.Message = "Tu información de tu cuenta";
             return View();
         }
+
+        public ActionResult Detalle()
+        {
+            ViewBag.Message = "Detalle de identificación";
+            return View();
+        }
     }
 }
