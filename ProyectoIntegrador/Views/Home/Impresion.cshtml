@@ -3,94 +3,118 @@
 }
 
 
+<style>
+    img.scanned {
+        height: 200px; /** Sets the display size */
+        margin-right: 12px;
+    }
+
+    .asprise-footer, .asprise-footer a:visited {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #999;
+        font-size: 13px;
+    }
+
+        .asprise-footer a {
+            text-decoration: none;
+            color: #999;
+        }
+
+            .asprise-footer a:hover {
+                padding-bottom: 2px;
+                border-bottom: solid 1px #9cd;
+                color: #06c;
+            }
+</style>
+
+<div class="container">
+    <div class="container-md">
+        <button class="btn-impr" id="jpg">Subir archivo JPG</button>
+    </div>
+    <div class="container-md">
+        <button class="btn-impr" onclick="scanToJpg()">Conectar escaner</button>
+    </div>
+</div>
+
+
+<div class="container container-cn" style="display:none" id="fingerContainer">
+    <div class="container-sm image-container">
+        <img src="#" id="image" class="img-thumbnail" />
+    </div>
+    <div class="container-md cnt">
         <div class="container">
-            <div class="container-md">
-                <button class="btn-impr" id="jpg">Subir archivo JPG</button>
-            </div>
-            <div class="container-md">
-                <button class="btn-impr">Conectar escaner</button>
-            </div>
+            <h4 class="inst-text">Selecciona la región a la que pertenece la huella</h4>
         </div>
 
+        <div class="container">
+            <div class="container-md-hand-left">
+                <div class="round-checkbox">
+                    <input type="checkbox" id="pulgarIzquierdo" name="region" />
+                    <label for="pulgarIzquierdo" style="margin-left:10px; margin-top:155px"></label>
 
-        <div class="container container-cn" style="display:none" id="fingerContainer">
-            <div class="container-sm image-container">
-                <img src="#" id="image" class="img-thumbnail" />
-            </div>
-            <div class="container-md cnt">
-                <div class="container">
-                    <h4 class="inst-text">Selecciona la región a la que pertenece la huella</h4>
+                    <input type="checkbox" id="indiceIzquierdo" name="region" />
+                    <label for="indiceIzquierdo" style="margin-left:78px; margin-top:17px"></label>
+
+                    <input type="checkbox" id="medioIzquierdo" name="region" />
+                    <label for="medioIzquierdo" style="margin-left:115px; margin-top:0px"></label>
+
+                    <input type="checkbox" id="anularIzquierdo" name="region" />
+                    <label for="anularIzquierdo" style="margin-left:155px; margin-top:6px"></label>
+
+                    <input type="checkbox" id="meniqueIzquierdo" name="region" />
+                    <label for="meniqueIzquierdo" style="margin-left:193px; margin-top:29px"></label>
+
+                    <input type="checkbox" id="superiorIzquierda" name="region" />
+                    <label for="superiorIzquierda" class="round-superior" style="margin-left:90px; margin-top:115px"></label>
+
+                    <input type="checkbox" id="hipotenarIzquierda" name="region" />
+                    <label for="hipotenarIzquierda" class="round-hipotenar" style="margin-left:136px; margin-top:180px"></label>
+
+                    <input type="checkbox" id="tenarIzquierda" name="region" />
+                    <label for="tenarIzquierda" class="round-tenar" style="margin-left:75px; margin-top:180px"></label>
+
                 </div>
 
-                <div class="container">
-                    <div class="container-md-hand-left">
-                        <div class="round-checkbox">
-                            <input type="checkbox" id="pulgarIzquierdo" name="region" />
-                            <label for="pulgarIzquierdo" style="margin-left:10px; margin-top:155px"></label>
+            </div>
+            <div class="container-md-hand-right">
+                <div class="round-checkbox">
+                    <input type="checkbox" id="pulgarDerecho" name="region" />
+                    <label for="pulgarDerecho" style="margin-left: 218px; margin-top:155px"></label>
 
-                            <input type="checkbox" id="indiceIzquierdo" name="region" />
-                            <label for="indiceIzquierdo" style="margin-left:78px; margin-top:17px"></label>
+                    <input type="checkbox" id="indiceDerecho" name="region" />
+                    <label for="indiceDerecho" style="margin-left:152px; margin-top:17px"></label>
 
-                            <input type="checkbox" id="medioIzquierdo" name="region" />
-                            <label for="medioIzquierdo" style="margin-left:115px; margin-top:0px"></label>
+                    <input type="checkbox" id="medioDerecho" name="region" />
+                    <label for="medioDerecho" style="margin-left:111px; margin-top:0px"></label>
 
-                            <input type="checkbox" id="anularIzquierdo" name="region" />
-                            <label for="anularIzquierdo" style="margin-left:155px; margin-top:6px"></label>
+                    <input type="checkbox" id="anularDerecho" name="region" />
+                    <label for="anularDerecho" style="margin-left:72px; margin-top:6px"></label>
 
-                            <input type="checkbox" id="meniqueIzquierdo" name="region" />
-                            <label for="meniqueIzquierdo" style="margin-left:193px; margin-top:29px"></label>
+                    <input type="checkbox" id="meniqueDerecho" name="region" />
+                    <label for="meniqueDerecho" style="margin-left:34px; margin-top:29px"></label>
 
-                            <input type="checkbox" id="superiorIzquierda" name="region" />
-                            <label for="superiorIzquierda" class="round-superior" style="margin-left:90px; margin-top:115px"></label>
+                    <input type="checkbox" id="superiorDerecho" name="region" />
+                    <label for="superiorDerecho" class="round-superior" style="margin-left:45px; margin-top:115px"></label>
 
-                            <input type="checkbox" id="hipotenarIzquierda" name="region" />
-                            <label for="hipotenarIzquierda" class="round-hipotenar" style="margin-left:136px; margin-top:180px"></label>
+                    <input type="checkbox" id="hipotenarDerecho" name="region" />
+                    <label for="hipotenarDerecho" class="round-tenar" style="margin-left:30px; margin-top:180px"></label>
 
-                            <input type="checkbox" id="tenarIzquierda" name="region" />
-                            <label for="tenarIzquierda" class="round-tenar" style="margin-left:75px; margin-top:180px"></label>
+                    <input type="checkbox" id="tenarDerecho" name="region" />
+                    <label for="tenarDerecho" class="round-hipotenar" style="margin-left:90px; margin-top:180px"></label>
 
-                        </div>
-
-                    </div>
-                    <div class="container-md-hand-right">
-                        <div class="round-checkbox">
-                            <input type="checkbox" id="pulgarDerecho" name="region" />
-                            <label for="pulgarDerecho" style="margin-left: 218px; margin-top:155px"></label>
-
-                            <input type="checkbox" id="indiceDerecho" name="region" />
-                            <label for="indiceDerecho" style="margin-left:152px; margin-top:17px"></label>
-
-                            <input type="checkbox" id="medioDerecho" name="region" />
-                            <label for="medioDerecho" style="margin-left:111px; margin-top:0px"></label>
-
-                            <input type="checkbox" id="anularDerecho" name="region" />
-                            <label for="anularDerecho" style="margin-left:72px; margin-top:6px"></label>
-
-                            <input type="checkbox" id="meniqueDerecho" name="region" />
-                            <label for="meniqueDerecho" style="margin-left:34px; margin-top:29px"></label>
-
-                            <input type="checkbox" id="superiorDerecho" name="region" />
-                            <label for="superiorDerecho" class="round-superior" style="margin-left:45px; margin-top:115px"></label>
-
-                            <input type="checkbox" id="hipotenarDerecho" name="region" />
-                            <label for="hipotenarDerecho" class="round-tenar" style="margin-left:30px; margin-top:180px"></label>
-
-                            <input type="checkbox" id="tenarDerecho" name="region" />
-                            <label for="tenarDerecho" class="round-hipotenar" style="margin-left:90px; margin-top:180px"></label>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="container" style="display:none" id="submitContainer">
-            
-            <button class="btn-submit" onclick="location.href='/Home/Latente'">Realizar Identificación</button>
-        </div>
+<div class="container" style="display:none" id="submitContainer">
+    <button class="btn-submit" onclick="location.href='/Home/Detalle'">Realizar Identificación</button>
+</div>
 
 
 
+<script src="https://asprise.azureedge.net/scannerjs/scanner.js" type="text/javascript"></script>
 
 
 <script type="text/javascript">
@@ -101,8 +125,8 @@
         input.attr("type", "file");
         input.trigger('click');
         input.change(function () {
-                loadImage(this);
-            });
+            loadImage(this);
+        });
         return false;
     });
 
@@ -117,6 +141,42 @@
             }
             reader.readAsDataURL(input.files[0]);
         }
+    }
+
+    function scanToJpg() {
+        scanner.scan(displayImagesOnPage,
+            {
+                "output_settings": [
+                    {
+                        "type": "return-base64",
+                        "format": "jpg"
+                    }
+                ]
+            }
+        );
+    }
+    /** Processes the scan result */
+    function displayImagesOnPage(successful, mesg, response) {
+        if (!successful) { // On error
+            console.error('Failed: ' + mesg);
+            return;
+        }
+        if (successful && mesg != null && mesg.toLowerCase().indexOf('user cancel') >= 0) { // User cancelled.
+            console.info('User cancelled');
+            return;
+        }
+        var scannedImages = scanner.getScannedImages(response, true, false); // returns an array of ScannedImage
+        for (var i = 0; (scannedImages instanceof Array) && i < scannedImages.length; i++) {
+            var scannedImage = scannedImages[i];
+            processScannedImage(scannedImage);
+        }
+    }
+
+    /** Processes a ScannedImage */
+    function processScannedImage(scannedImage) {
+        $('#image').attr('src', scannedImage.src);
+        $('#fingerContainer').show();
+        $('#submitContainer').show();
     }
 </script>
 

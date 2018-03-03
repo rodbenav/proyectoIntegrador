@@ -17,7 +17,7 @@
     td {
         text-align: center;
     }
-    img {
+    .mini {
         height: auto;
         width: auto;
         max-width: 150px;
@@ -62,19 +62,19 @@
                                 <tr>
                                     <td></td>
                                     <td>Pulgar I-1</td>
-                                    <td><img class="img-responsive img" src="~/Content/Images/download.jpg" /></td>
+                                    <td><a href="#" class="pop"><img class="img-responsive img mini" src="~/Content/Images/download.jpg" /></a></td>
                                     <td><a id="identificar1-1" class="btn btn-primary btn-md" style="width:100%">Identificar</a></td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td>Pulgar D-1</td>
-                                    <td><img class="img-responsive img" src="~/Content/Images/huellas.jpg" /></td>
+                                    <td><a href="#" class="pop"><img class="img-responsive img mini" src="~/Content/Images/huellas.jpg" /></a></td>
                                     <td><a id="identificar1-2" class="btn btn-primary btn-md" style="width:100%">Identificar</a></td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td>Indice D-1</td>
-                                    <td><img class="img-responsive img" src="~/Content/Images/hqdefault.jpg" /></td>
+                                    <td><a href="#" class="pop"><img class="img-responsive img mini" src="~/Content/Images/hqdefault.jpg" /></a></td>
                                     <td><a id="identificar1-3" class="btn btn-primary btn-md" style="width:100%">Identificar</a></td>
                                 </tr>
                             </tbody>
@@ -99,13 +99,13 @@
                                 <tr>
                                     <td></td>
                                     <td>Medio I-1</td>
-                                    <td><img class="img-responsive img" src="~/Content/Images/otra.jpg" /></td>
+                                    <td><a href="#" class="pop"><img class="img-responsive img mini" src="~/Content/Images/otra.jpg" /></a></td>
                                     <td><a id="identificar2-1" class="btn btn-primary btn-md" style="width:100%">Identificar</a></td>
                                 </tr>
                                 <tr>
                                     <td></td>
                                     <td>Medio I-2</td>
-                                    <td><img class="img-responsive img" src="~/Content/Images/download.jpg" /></td>
+                                    <td><a href="#" class="pop"><img class="img-responsive img mini" src="~/Content/Images/download.jpg" /></a></td>
                                     <td><a id="identificar2-2" class="btn btn-primary btn-md" style="width:100%">Identificar</a></td>
                                 </tr>
                             </tbody>
@@ -130,7 +130,7 @@
                                 <tr>
                                     <td></td>
                                     <td>Pulgar I-1</td>
-                                    <td><img class="img-responsive img" src="~/Content/Images/blancoadnhifi.jpg" /></td>
+                                    <td><a href="#" class="pop"><img class="img-responsive img mini" src="~/Content/Images/blancoadnhifi.jpg" /></a></td>
                                     <td><a id="identificar3-1" class="btn btn-primary btn-md" style="width:100%">Identificar</a></td>
                                 </tr>
                             </tbody>
@@ -140,6 +140,17 @@
             </tbody>
         </table>
 
+    </div>
+</div>
+
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <img src="" class="imagepreview" style="width: 100%;">
+            </div>
+        </div>
     </div>
 </div>
 
@@ -166,6 +177,13 @@
             } else {
                 objectTarget.show();
             }
+        });
+    });
+
+    $(function () {
+        $('.pop').on('click', function () {
+            $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+            $('#imagemodal').modal('show');
         });
     });
 </script>
