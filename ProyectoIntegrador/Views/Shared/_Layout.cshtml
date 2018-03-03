@@ -12,8 +12,15 @@
 </head>
 <body>
     <div class="jumbotron">
-        <h1 style="color:steelblue; text-align:center; width:100%; align-content:center">Sistema automatizado de</h1>
-        <h1 style="color:steelblue; text-align:center; width:100%; align-content:center">identificación de huellas</h1>
+
+        @if (ViewBag.Header != null) {
+            <h1 style="color:steelblue; text-align:center; width:100%; align-content:center">@ViewBag.Header</h1>
+        } else {
+            <h1 style="color:steelblue; text-align:center; width:100%; align-content:center">Sistema automatizado de</h1>
+            <h1 style="color:steelblue; text-align:center; width:100%; align-content:center">identificación de huellas</h1>
+        }
+
+
     </div>
     <div class="navbar navbar-inverse">
         <div class="container">
